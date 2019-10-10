@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 
+	table 태그는 테이블을 만드는 태그로 최소 table, tr, th/td가 있어야 한다. 
+	-->
+	<table>
+		<tr>
+			<th>항목1</th>
+			<th>항목2</th>
+		</tr>
+		<tr>
+			<td>내용1</td>
+			<td>내용2</td>
+		</tr>
+	</table>
+	<!-- 
+	border속성 : 테두리를 생성하는 속성으로 굵기를 입력해준다. =>css 관리 할 수 있음
+	caption태그 : 테이블 제목으로 테이블 가로를 기준으로 가운데 정렬을 해준다
+	thead,tbody,tfoot태그는 필수 요소는 아니지만 사용할 경우 편하다
+	=> thead, tbody, tfoot의 순서가 바뀌어도 화면에서 보이는 순서는 thead,
+		 tbody, tfoot 순으로 보인다.
+	figure, figcaption태그를 이용하여 테이블 설명을 작성할 수 있지만,
+	caption태그와 역할이 비슷하기 때문에 둘 중 하나만 사용하는 것을 권장
+	colspan,rowspan 속성은 묶어야할 갯수가 와야한다
+	 =>tbody는 tbody내에서 묶는다
+	colspan은 열들을 묶음 긴 가로가 생성
+	rowspan은 행들을 묶음 긴 세로가 생성
+	 -->
+	<figure>
+		<figcaption>
+			1반 학생들 성적입니다.
+		</figcaption>
+		<table border="1">
+			<caption>반 성적</caption>
+			<thead>
+				<tr>
+					<th>이름</th>
+					<th scope="col">국어</th>
+					<th scope="col">영어</th>
+					<th>비고</th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<th>평균</th>
+					<th colspan="2">95</th>
+				</tr>
+			</tfoot>
+			<tbody>
+				<tr>
+					<td scope="row">홍길동</td>
+					<td>100</td>
+					<td>100</td>
+					<td rowspan="2">없음</td>
+				</tr>
+				<tr>
+					<td scope="row">임꺽정</td>
+					<td>90</td>
+					<td>90</td>
+				</tr>
+			</tbody>
+		</table>
+	</figure>
+</body>
+</html>

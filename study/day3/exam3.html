@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>선택자 조합</title>
+    <style>
+    div{
+        color: red;
+    }
+    .hi{
+        background-color: yellow;
+    }
+    /* body태그 안에 있는 모든 p태그(자식, 손자, 
+       증손자등 모든 후손) */
+    body p{
+        font-weight: bold;
+    }
+    /* body태그 바로 안에 있는 p태그(자식)  */
+    body>p{
+        text-decoration: underline;
+    }
+    /* +는 인접(붙어있는) 형제를 의미
+    앞형제가 div태그이면서 본인 div태그인 경우 */
+    div+div{
+        border-top: 1px solid black;
+    }
+    /*
+    ~는 형제를 의미
+    앞형제들중에서 div1 클래스를 가지고 있으면 본인이 p태그인 경우
+    
+    ,는 그룹화를 의미
+    A,B{}에서
+    A인 경우와 B인 경우 모두 같은 스타일을 적용할 때 사용
+    */
+    .div1~p,
+    .second{
+        border-bottom: 1px solid red;
+    }
+    /* 
+    본인을 구체적으로 강하게 나타내는 방법 
+    : 붙여서 여러 선택자들을 사용한다.
+    태그선택자들을 연달아 쓸수 없다.
+    예)pdiv{}
+    아이디 선택자드을 연달아 쓸수없다.
+    예)#id#pw{}
+    가능한 상황
+    .클래스.클래스{}
+    태그.클래스{}//거꾸로하면 의미가 달라진다.
+    태그#아이디{}//거꾸로로하면 의미가 달라진다.
+    #아이디.클래스{}//거꾸로 가능
+    div.hi{}(o)
+    .hidiv{}(o) 
+      => hi클래스이면서div태그가아닌 hidiv클래스로 인식, 
+    */
+    .hi.first{
+        border-left: 1px blue solid;
+    }
+    div div div{}
+    div>div>div{}
+    div+div{}
+    div~div{}
+    div.hello{}
+    </style>
+</head>
+<body>
+    <!-- 
+    id : 중복 불가
+    name : 중복 가능, 하나만 입력
+    class : 중복 가능, 여러개 가능(띄어쓰기로 구분)
+     -->
+    <div class="div1">
+        <div class="hi first">안녕</div>
+    </div>
+    <div>
+        <div class="hello">안녕하세요</div>
+    </div>
+    <div class="hi second">
+        <p>안녕2</p>
+    </div>
+    <p class="hi">안녕3</p>
+</body>
+</html>

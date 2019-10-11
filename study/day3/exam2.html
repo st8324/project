@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>단위 확인 예제</title>
+	<style>
+		/* 문서의 기본값을 설정 */
+	:root{
+		font-size: 14px;
+	}
+	#hi1{
+		background-color: gray;
+		width: 400px;
+	}
+	/* %는 부모를 기준으로 계산이 된다. 그래서 높이 계산할때
+	매우 조심해야한다. */
+	#hi2{
+		background-color: gray;
+		width: 50%;
+		height: 1000%;
+		font-size: 84px;
+	}
+	/* 
+	em은 부모를 기준으로 배수를 의미한다.
+	1.5em은 부모의 150%
+	 */
+	body{
+		font-size: 14px;
+	}
+	#hi3{
+		font-size: 2em;
+	}
+	#span1{
+		font-size: 3em;
+	}
+	/* rem에서 r은 root를 의미하며 root는 문서의 기본값을 의미 */
+	#hi4{
+		font-size: 2rem;
+	}
+	#span2{
+		font-size: 3rem;
+	}
+	#hi5{
+		background-color: yellow;
+		height: 50vh;
+	}
+	</style>
+</head>
+<body>
+	<p id="hi1">안녕하세요.</p>
+	<p id="hi2">안녕하세요.</p>
+	<p id="hi3"><span id="span1">안녕하세요.</span></p>
+	<p id="hi4"><span id="span2">안녕하세요.</span></p>
+	<div id="hi5">안녕하세요.</div>
+</body>
+</html>

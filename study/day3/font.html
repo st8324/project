@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>font 속성 예제</title>
+	<!-- link는 html파일에 css를 가져오는 방법 -->
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+	<style>
+		/* 
+		위에 있는 링크 태그와 같은 역할을 아래 @import가 해준다 
+		css파일을 css에 가져 오는 방법
+		*/
+		@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+		/* @import url(165페이지에 있는 연결코드에 있는 url 주소를 입력); */
+		/* font-family : 폰트 종류 설정 */
+		body{
+			/* font-family: '돋움', dotum,helvetica, sans-serif; */
+			font-family: 'Nanum Gothic', sans-serif;
+			font-size: 16px;
+			/* 
+			font-weight는 100~900까지의 값을 가짐
+			숫자가 클수록 두꺼워짐
+			700은 bold로 지정
+			 */
+			font-weight: bold;
+			/* 텍스트 데코는 170페이지 표 참고
+			underline, overline, none, line-through */
+			text-decoration: underline;
+			/* 글자 기울이기 : none, italic, oblique */
+			font-style: oblique;
+			color: red;
+			/* 글자 정렬 center, right, left, justify */
+			text-align: left ;
+			width: 100px;
+			/* 글자 사이의 간격 */
+			letter-spacing: 1px;
+			/* 단어 사이의 간격 */
+			word-spacing: 3px;
+			/* 글자가 들어가는 빈박스의 높이를 설정 => 수직 가운데 정렬 */
+			line-height: 20px;
+			/* 글자의 들여쓰기 */
+			text-indent: 30px;
+			text-transform: capitalize;
+		}
+	</style>
+</head>
+<body>
+	안녕하세요. 제 이름은 홍길동입니다. i go to school.
+</body>
+</html>

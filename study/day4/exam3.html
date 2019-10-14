@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>텍스트 줄바꿈</title>
+    <style>
+        p{
+            text-align: justify;
+        }
+        #second{
+            /* word-break : 라인을 넘어가서 줄을 바꿀때에 단어를 깨서 다음라인 할것인지
+            (break-all) 아니면 단어를 깨지 않고 다음 라인으로 넘어갈 것인지(기본)
+            을 설정*/
+            word-break: break-all;
+        }
+        #p1{
+            white-space: nowrap;
+        }
+        #p2{
+            white-space: pre;
+        }
+        #p3{
+            white-space: pre-wrap;
+        }
+        #p4{
+            white-space: pre-line;
+        }
+        /* pre태그 다음에 나오는 형제 p태그들  */
+        pre~p{
+            width: 100px;
+            /* 넘어가는 자식 요소들을 안보이게 감춤 */
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <p id="first">abcjklfa jskl djflaksj fd;lj askjfa sjflaksjl fkjasl jf;la jsasfasfasfasfd asdf</p>
+    <p id="second">abcjklfa jskl djflaksj fd;lj askjfa sjflaksjl fkjasl jf;la jsasfasfasfasfd adsaf</p>
+    <!-- pre태그 : 태그 안에 입력한 코드를 그대로 보여줌 -->
+    <pre>
+        안녕하세요
+        안녕하세요
+        안녕하세요
+    </pre>
+    <p id="p1">
+        안녕하세요 
+        안녕하세요 
+        안녕하세요 
+        안녕하세요 
+        안녕하세요 
+    </p>
+    <p id="p2">
+        안녕하세요 
+        안녕하세요 
+        안녕하세요 
+        안녕하세요 
+        안녕하세요 
+    </p>
+    <p id="p3">
+        안녕하세요 
+        안녕하세요 
+        안녕하세요 
+        안녕하세요 
+        안녕하세요 
+    </p>
+    <p id="p4">
+        안녕하세요 
+        안녕하세요 
+        안녕하세요 
+        안녕하세요 
+        안녕하세요 
+    </p>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>display 속성</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        .inline{
+            /* inline은 가로와 높이, 여백의 길이를 지정할 수 없다
+            새라인에서 시작되는것이 아니라 현재 라인에서 이어서 작업을 한다.
+            단, 앞에 형제 태그가 block태그이면 새 라인에서 시작 */
+            display: inline;
+        }
+        .inline-block{
+            /* block의 가로, 높이, 여백의 길이를 지정할 수 있는 특성과 
+            inline의 현재 위치에서 이어서 작업하는 특성이 같이 있는 속성값 */
+            display: inline-block;
+        }
+        .block{
+            /* block은 가로,세로,여백의 길이를 지정할 수 잇고, 새라인에서 시작하게 한다.
+             */
+            display: block;
+        }
+        .none{
+            /* 안보이게 감추는 값 : none => 투명한게 아님 =>공간을 차지하지 않음 */
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>기본</div>
+    <div class="inline-block">inline-block</div>
+    <!-- inline-block박스와 inline박스 사이에 공백이 생기는데
+    이는 코드를 편하게 작업하고 보기위해서 각 태그를 엔터쳐서 내렸기 때문에
+    생기는 현상으로 자주 발생하고, 이로인한 문제들이 생길 수 있다. -->
+    <div class="inline">inline</div>
+    <div class="block">block</div>
+    <div class="none">none</div>
+</body>
+</html>

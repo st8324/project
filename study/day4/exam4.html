@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>리스트 관련 속성</title>
+    <style>
+        #square{
+            /* 
+            ul이나 ol태그의 type속성으로 기본 마커의 모양을 결정할 수 있기 때문에
+            list-style-type 속성은 기본 마커의 모양을 결정하는데 사용할 수도 있지만
+            주로 마커를 제거하는데 사용한다.(none)
+            */
+            list-style-type: square;
+            /* 
+            list-style-position : 마커의 위치를 li태그의 안으로 넣을지
+            밖으로 뺄지를 결정하는 속성으로 기본 outside
+             */
+            list-style-position: inside;
+        }
+        #none{
+            list-style-type: none;
+        }
+        #img{
+            /* url() 함수 : 해당 위치(절대 또는 상대 경로)에 있는 파일을 가져오는 
+            함수 */
+            list-style-image: url("mark.png");
+        }
+    </style>
+</head>
+<body>
+    <ul type="square">
+        <li>사과</li>
+        <li>배</li>
+    </ul>
+    <ul id="square">
+        <li>사과</li>
+        <li>배</li>
+    </ul>
+    <ul id="none">
+        <li>사과</li>
+        <li>배</li>
+    </ul>
+    <ol type="1">
+        <li>사과</li>
+        <li>배</li>
+    </ol>
+    <ul id="img">
+        <li>사과</li>
+        <li>배</li>
+    </ul>
+</body>
+</html>

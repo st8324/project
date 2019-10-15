@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>margin</title>
+	<style>
+		/* display : block인 경우 오른쪽 margin을 따로 지정하지
+		않아도 width가 브라우저의 크기보다 작으면 차이만큼 margin
+		생성된다. */
+		.box{
+			width: 100px;
+			height: 100px;
+			border: black solid 1px;
+			/* 위 여백을 30px 할당
+			margin : 	margin-top 
+								margin-right 
+								margin-bottom 
+								margin-left가 합쳐진 속성으로 순서를 지켜야한다.*/
+			margin-top: 30px;
+		}
+		.center{
+			margin: 0 auto;
+		}
+		.box2{
+			/* width 100%는 부모 태그의 100% */
+			width: 100%;
+			margin: 10px;
+		}
+		.box3{
+			display: inline-block;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="box box2"></div>
+	<div class="box center"></div>
+	<div class="box box3"></div>
+	<div class="box box3"></div>
+</body>
+</html>

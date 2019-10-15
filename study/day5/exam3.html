@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bg-attachment 예제</title>
+    <style>
+        body{
+            background-image: url(../day2/cat.jpg);
+            height: 1000px;
+            /* background-attachment : 스크롤이 움직일 때 배경이미지를 따라 
+            움직이게 할건지 고정으로 할건지를 결정하는 속성
+            scroll : 스크롤이 내려가면 배경도 같이 내려감(기본값)
+            fixed : 스크롤이 내려가도 배경이미지는 처음 그대로임  */
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            /* background-position : 배경이미지의 시작점을 설정하는 속성으로
+            순서는 left top순서이며, 기본은 0 0 이다.
+            width(가로)를 기준으로는 left,center,right가 값으로 미리 지정되어 있고,
+            height(세로)를 기준으로는 top, center, bottom이 값으로 미리 지정되어
+            있음.
+             */
+            background-position: -50px -50px;
+            /* background-size : 배경 이미지를 확대 또는 축소하는 속성으로
+            값을 하나만 쓰면 가로 세로 동일하게 적용되고 2개를 쓰면 
+            width, height순으로 적용된다. */
+            background-size: 50%;
+            /* background : 여러 배경 관련 속성을 그룹화 시킨 속성이다.
+            background : bg-img bg-repeat bg-position
+            */
+            background: 
+                url(../day2/cat.jpg) no-repeat 10px 10px,
+                url(../day2/cat.jpg) no-repeat 100% 0;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

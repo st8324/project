@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>둥근 테두리</title>
+	<style>
+		.bt1{
+			/* border-xxx-radius : xxx에 해당하는 위치에 둥근 테두리
+				 설정
+				top : 좌측 상단
+				right : 우측 상단
+				bottom : 우측 하단
+				left : 좌측 하단
+				border-radius는 값의 갯수에 따라 의미가 달라진다.
+				값이 4개 : 좌측 상단부터 시계 방향으로
+				좌측 상단을 10px둥글게, 우측 상단은 20px, 우측 하단 30px
+				좌측 하단 40px 둥글게한다.
+				border-radius : 10px 20px 30px 40px;
+				값에 3개 : 좌측 상단부터 시계 방향으로 3개
+				 => right와 left가 같다 => 우측 상단과 자측 하단이 같다
+				border-radius : 10px 20px 30px ;
+				값이 2개 : 좌측 상단부터 시계 방향으로 2개
+				 => right와 left가 같고, top과 bottom이 같다.
+				값이 1개 : 좌측 상단부터 시계 방향으로 1개
+				 => 전부다 같다
+				/ : 둥근 테두리가 타원형으로 만들고 싶을 때 사용하며
+				  가로/세로로 입력한다.
+					좌측 상단을 가로 30px 세로 20px이 되도록 둥근 모서리를 만들고
+					우측 상단을 가로 40px 세로 20px이 되도록 둥근 모서리를 만들고
+					우측 하단을 가로 50px 세로 20px이 되도록 둥근 모서리를 만들고
+					좌측 하단을 가로 60px 세로 20px이 되도록 둥근 모서리를 만듬
+			*/
+			border-radius: 30px 40px 50px 60px/20px;
+		}
+	</style>
+</head>
+<body>
+	<button class="bt1">버튼</button>
+</body>
+</html>

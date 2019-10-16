@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>float 예제</title>
+	<style>
+		/* 부모 태그는 자식 태그에 float속성이 있으면 해당 자식
+		태그를 감싸지 못한다 => 높이를 포함할 수 없다. */
+	.float-left{
+		float: left;
+		width: 100px;
+		height: 150px;
+		border: 1px solid;
+	}
+	.container{
+		border: 1px solid red;
+		background-color: yellow;
+	}
+	/* 
+	float을 이용할 때 부모의 높이가 계산되지 않은 경우
+	부모의 높이가 잡히도록 처리하는 방법
+	container 클래스가 있는 태그 마지막에 빈내용("")을 넣고
+	float:left와 right를 해제한 후 해당 요소를 block태그로 만든다. */
+	.container::after{
+		content: "";
+		clear: both;
+		display: block;
+	}
+	.break{
+		clear: left;
+	}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<div class="float-left"></div>
+		15일 오후 스위스 1위 통신사 스위스콤 사옥 인근의 풀스5 광장. SK텔레콤과 5G 로밍 계약을 체결한 스위스콤 사옥 근처에서 게임 배틀그라운드(2.05B)앱을 다운 받아 봤다. 삼성 갤럭시 S10 5G로 2분 정도 걸렸는데, 삼성 갤럭시 S10 LTE로는 4분 이상 걸렸다. 음성 통화 역시 5G가 빨랐다. 5G에서는 1초 이내에 전화기 벨이 울렸는데 LTE는 5초에서 10초 정도 걸렸다.
+		<br class="break">이렇게 외국에 가서도 빠른 통신이 가능한 것은 5G 로밍 덕분이다. 로밍은 외국에서 기존에 국내에서 쓰던 번호로 이동통신을 사용할 수 있게 하는 것으로, SK텔레콤은 7월 17일 스위스콤과 세계 최초로 5G 로밍 서비스를 시작했다.
+		SK텔레콤은 연내 스위스, 중국, 핀란드, 이탈리아 등 4개국에서, 2020년에는 미국, 독일, 홍콩, 호주, 태국, 대만 등 20개국 이상으로 확대할 예정이다.
+	</div>
+	<div class="container">
+		<div class="float-left"></div>
+
+	</div>
+	<!-- float : left나 right를 쓰면 엔터에 의한 공백을
+	제거할 수 있다. -->
+	<div>
+		<div class="float-left"></div>
+		<div class="float-left"></div>
+	</div>
+</body>
+</html>

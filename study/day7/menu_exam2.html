@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>메뉴 예제2</title>
+    <style>
+        .nav{
+            background-color: cornsilk;
+        }
+        .nav::after{
+            content: "";
+            clear: both;
+            display: block;
+        }
+        .logo,.menu{
+            height: 50px;
+            box-sizing: border-box;
+            float: left;
+            font-size: 30px;
+            line-height: 47px;
+            margin-right: 10px;
+        }
+        .logo{
+            margin-left: 10px;
+        }
+        .search{
+            height: 50px;
+            float: right;
+            position: relative;
+            width: 260px;
+            margin-right: 10px;
+        }
+        .search>input{
+            position: absolute;
+            height: 30px;
+            width: 200px;
+            top: 50%;
+            margin-top: -15px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            border: 1px solid darksalmon;
+        }
+        .search>input:focus{
+            border-radius: 0;
+        }
+        .search>button{
+            position: absolute;
+            width: 50px;
+            height: 30px;
+            top: 50%;
+            margin-top: -15px;
+            box-sizing: border-box;
+            right: 0;
+            background-color: transparent;
+            border: 2px solid darksalmon;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="logo">로고</div>
+        <div class="menu">메뉴1</div>
+        <div class="menu">메뉴2</div>
+        <div class="search">
+            <input type="text">
+            <button>검색</button>
+        </div>
+    </div>
+</body>
+</html>

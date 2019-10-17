@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>사이드 메뉴 예제</title>
+	<style>
+		.side{
+			width: 200px;
+			float: left;
+		}
+		.submenu{
+			height: 50px;
+			box-sizing: border-box;
+			background-color: whitesmoke;
+			text-align: center;
+			font-size: 25px;
+			line-height: 47px;
+			border: 1px solid;
+			border-bottom: none;
+		}
+		.submenu:last-of-type{
+			border-bottom: 1px solid;
+		}
+		.container{
+			float: right;
+			width: calc(100% - 200px - 30px);
+			height: 500px;
+			border: 1px solid;
+		}
+	</style>
+</head>
+<body>
+	<div class="side">
+		<div class="submenu">메뉴1</div>
+		<div class="submenu">메뉴2</div>
+		<div class="submenu">메뉴3</div>
+	</div>
+	<div class="container"></div>
+</body>
+</html>

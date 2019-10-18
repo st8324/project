@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>페이지네이션 예제</title>
+	<style>
+	.pagination{
+		display: flex;
+		justify-content: center;
+	}
+	.pagination a{
+		text-decoration: none;
+		color: black;
+		width: 40px;
+		height: 40px;
+		border: 1px solid;
+		display: block;
+		float: left;
+		line-height: 38px;
+		text-align: center;
+		border-right: none;
+	}
+	.pagination a:last-child{
+		border-right: 1px solid;
+	}
+	.active{
+		background-color: skyblue;
+	}
+	.pagination a:hover{
+		font-weight: bold;
+	}
+	</style>
+</head>
+<body>
+	<div class="pagination">
+		<a href="#">&laquo;</a>
+		<a href="#">1</a>
+		<a href="#" class="active">2</a>
+		<a href="#">3</a>
+		<a href="#">4</a>
+		<a href="#">5</a>
+		<a href="#">&raquo;</a>
+	</div>
+</body>
+</html>

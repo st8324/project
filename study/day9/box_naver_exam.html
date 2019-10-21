@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>네이버 박스 만들기</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		body{
+			min-width: 1100px;
+		}
+		/* header와 관련된 css */
+		.header{
+			height: 178px;
+		}
+		.header-top{
+			height: 130px;
+		}
+		.header-bot{
+			height: 48px;
+			border-top: 1px solid /*rgb(241, 243,246)*/;
+			border-bottom: 1px solid /*rgb(209, 216, 218)*/;
+		}
+		/* main과 관련된 css */
+		.main{
+			height: 1466px;
+		}
+		.container{
+			margin: 0 auto;
+			height: 100%;
+			width: 1080px;
+		}
+		.box-left{
+			width: 740px;
+			height: 100%;
+			float: left;
+		}
+		.box{
+			width: 100%;
+			margin-top: 8px;
+		}
+		.contents1{
+			height: 120px;
+		}
+		.box-left>.contents2{
+			height: 46px;
+		}
+		.box-left>.contents3{
+			height: 246px;
+		}
+		.contents4{
+			height: 884px;
+		}
+		.contents5{
+			height: 130px;
+		}
+		.box-right{
+			width: 332px;
+			height: 100%;
+			float: right;
+		}
+		.box-right>.contents2{
+			height: 142px;
+		}
+		.box-right>.contents3{
+			height: 150px;
+		}
+		/* footer와 관련된 css */
+		.footer{
+			height: 314px;
+			margin-top: 8px;
+		}
+
+		/* 배경 색 관련 클래스 */
+		.bg-white{
+			background-color: white;
+		}
+		.bg-body{
+			background-color: rgb(242, 244, 247);
+		}
+	</style>
+</head>
+<body class="bg-body">
+	<div class="header bg-white">
+		<div class="header-top"></div>
+		<div class="header-bot"></div>
+	</div>
+	<div class="main">
+		<div class="container">
+			<div class="box-left">
+				<div class="contents1 box bg-white"></div>
+				<div class="contents2 box bg-white"></div>
+				<div class="contents3 box bg-white"></div>
+				<div class="contents4 box bg-white"></div>
+				<div class="contents5 box bg-white"></div>
+			</div>
+			<div class="box-right">
+				<div class="contents1 box bg-white"></div>
+				<div class="contents2 box bg-white"></div>
+				<div class="contents3 box bg-white"></div>
+				<div class="contents4 box bg-white"></div>
+				<div class="contents5 box bg-white"></div>
+			</div>
+		</div>
+	</div>
+	<div class="footer bg-white"></div>
+</body>
+</html>

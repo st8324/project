@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>그라디언트 예제</title>
+	<style>
+	.g1{
+		/* linear-gradient : 선형으로 그라디언트 적용
+		left : 방향
+		#ff0000 0% : 시작 색
+		#ffff00 50% : 중간 색
+		#00ff00 100% : 마지막 색 */
+		background: -webkit-linear-gradient(left, #ff0000 0%, #ffff00 50%,
+											#00ff00 100%);
+	}
+	.g2{
+		/* gradient : 그라디언트 적용
+		linear(반직선) : 선형 그라디언트로 적용
+		left-top : 왼쪽 상단에서 시작해서
+		left-bottom : 왼쪽 하단으로 끝남
+		위의 두 값은 직선을 만들어서 그라디언트를 적용하는 방법
+		color-stop(지점, 색상) : 그라디언트를 적용하기 위해 지점과 색상을 설정하는 
+		함수 */
+		background: -webkit-gradient(linear, left top, left bottom,
+			color-stop(0%, #f00),color-stop(50%, #ff0),color-stop(100%, #0f0));
+	}
+	.box{
+		width: 100px;
+		height: 100px;
+		display: inline-block;
+	}
+	.b{
+		width: 100px;
+		height: 100px;
+		float: left;
+		background: blue;
+	}
+	.p::after{
+		display: block;
+		content: "";
+		clear: both;
+	}
+	.b1{
+		background: -webkit-gradient(linear, left top, right bottom,
+			color-stop(0%, #f00),color-stop(50%, #ff0),color-stop(100%, #0f0));
+	}
+	.b2{
+		background: -webkit-gradient(linear, right top, left bottom,
+			color-stop(0%, #f00),color-stop(50%, #ff0),color-stop(100%, #0f0));
+	}
+	.b3{
+		background: -webkit-gradient(linear, left bottom, right top,
+			color-stop(0%, #f00),color-stop(50%, #ff0),color-stop(100%, #0f0));
+	}
+	.b4{
+		background: -webkit-gradient(linear, right bottom, left top,
+			color-stop(0%, #f00),color-stop(50%, #ff0),color-stop(100%, #0f0));
+	}
+	.b5{
+		background: -webkit-radial-gradient(center, ellipse cover, 
+			#ff0000 0%, #ffff00 50%, #00ff00 100%);
+	}
+	.b6{
+		background: -webkit-gradient(radial, center center, 0px, center center, 100%,
+			color-stop(0%, #f00),color-stop(50%, #ff0),color-stop(100%, #0f0));
+	}
+	</style>
+</head>
+<body>
+	<div class="g1 box"></div>
+	<div class="g2 box"></div>
+	<div class="p">
+		<div class="b b1"></div>
+		<div class="b b2"></div>
+	</div>
+	<div class="p">
+		<div class="b b3"></div>
+		<div class="b b4"></div>
+	</div>
+	<div class="p">
+		<div class="b b5"></div>
+		<div class="b b6"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>transform 예제</title>
+	<style>
+		p{
+			/* perspective : z축을 설정하는 속성으로
+			z축이 필요한 요소(태그) 부모에 할당해야한다. */
+			/* 
+			p.309 설명은 translateZ의 값이 고정인 상태에서
+			perspective의 값만 변경했을 때의 설명으로
+			perspective의 값이 클수록 이미지가 작아진다.
+			 */
+			perspective: 1000px;
+			perspective-origin: 0 0;
+		}
+		p img{
+			position: absolute;
+			top:0;
+			left: 0;
+			/* translate??? : 좌표를 이동하는 기능 */
+			transform: translateZ(100px);
+			/* scalse??? : 크기 변경으로 배수로 값을 설정
+			 2를 넣어주면 2배를 의미, 1.5를 입력하면 1.5배*/
+			transform: scale(2,2);
+			transform: scaleZ(3) translateZ(100px);
+			transform: rotateX(30deg);
+			transform: translateZ(100px);
+		}
+		/* 
+		rotate : 축을 기준으로 회전시키는 속성, x축과 y축은 회전되었다는 보여주기 위해 
+			모양이 약간 틀어진다.(사각형이 사다리꼴로 된다.)
+			각도를 입력해야하기 때문에 단위가 deg
+		translate : 축을 기준으로 이동시키는 속성, z축은 perspective 속성을 부모에
+			추가해야한다.
+		skew : 축을 기준으로 기울이는 속성, 평행사변형이 된다.
+		maxtrix : scale+translate + rotate + skew를 한번에 적용하는 속성
+			(6개 필요), scaleX, skewY, skewX, scaleY, translateX, translateY
+		 */
+	</style>
+</head>
+<body>
+	<p><img src="../day2/cat.jpg" alt=""></p>
+</body>
+</html>

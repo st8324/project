@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>transform 복습 예제</title>
+	<style>
+		div{
+			-webkit-perspective: 300px;
+		}
+		img{
+			animation-name: roateZ;
+			animation-duration: 6s;
+			animation-iteration-count: infinite;
+		}
+		@keyframes roateZ {
+			50%{
+				transform: rotatey(360deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div><img src="../day2/cat.jpg" alt=""></div>
+</body>
+</html>

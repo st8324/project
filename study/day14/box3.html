@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>박스예제3</title>
+	<style>
+		*{
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+		}
+		.box1{
+			height: 100vh;
+			border: 2px solid red;
+		}
+		.box2{
+			height: 100vh;
+			border: 2px solid blue;
+			width: 1000px;
+			margin: 0 auto;
+		}
+		@media screen and (min-width: 1000px) {
+			.box1{
+				width: 1000px;
+				margin: 0 auto;
+			}
+		}
+		@media screen and (max-width:999px){
+			.box2{
+				width : 100%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+</body>
+</html>

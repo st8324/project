@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>오버플로우 예제</title>
+	<style>
+		.parent{
+			width: 300px;
+			border: 1px solid black;
+			/* height: 50px; */
+			/* 
+			overflow 속성은 자식이 부모를 벗어나는 크기를 가질 때 처리하는 속성
+			hidden : 넘어가는 내용들을 가린다.
+			auto : 내용이 넘어가면 스크롤을 생성하고, 넘어가지 않으면 스크롤을 생성하지
+				않는다.
+			scroll : 무조건 스크롤을 생성한다.
+			visible : 자식의 넘어가는 내용이 보이도록 한다. 기본값
+			*/
+			overflow: hidden;
+		}
+		.child{
+			width: 400px;
+			border: 1px solid red;
+		}
+		.box{
+			width: 400px;
+			border: 1px solid blue;
+			/* overflow 속성을 이용한 말줄임(...) 표시 적용하는 방법 */
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="child">
+			You can also use other input classes, such as .input-group-prepend or .input-group-append to attach an icon or help text next to the input field. You will learn more about these classes in the Bootstrap Inputs chapter.
+		</div>
+	</div>
+	<div class="box">
+		You can also use other input classes, such as .input-group-prepend or .input-group-append to attach an icon or help text next to the input field. You will learn more about these classes in the Bootstrap Inputs chapter.
+	</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>소수 예제</title>
+	<script>
+		/*
+		A의 약수 : A를 i 나누었을 때 나머지가 0인 수를
+						  i는 A의 약수라고 한다.
+		소수는 약수가 1과 자기자신밖에 없는  수
+		2, 3, 5, 7, 11, 13, 17, 19, ...
+		정수 num가 소수인지 아닌지 판별하는 코드를 작성하세요.
+		정수 num의 약수의 갯수가 2개이면 소수라고 출력하고
+		2개가 아니면 소수가 아니라고 출력
+		1.반복횟수 : i가 1부터 num까지 1씩 증가한다
+		2.규칙성(실행문) : 
+			i가 num의 약수이면 약수의 갯수를 1증가
+			=> num를 i로 나누었을 때 나머지가 0과 같다면
+			   약수의 갯수를 1증가
+		3.반복문 종료 후 : 
+			정수 num의 약수의 갯수가 2개이면 소수라고 출력하고
+			2개가 아니면 소수가 아니라고 출력
+		*/
+		var i, count= 0, num = 7;
+		for(i=1; i <= num; i++){
+			if(num % i == 0){
+				count++;//++count;//count+=1;//count=count+1;
+			}
+		}
+		if(count == 2){
+			console.log('',num,'는 소수');
+		}else{
+			console.log('',num,'는 소수가 아님');
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

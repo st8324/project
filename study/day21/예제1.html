@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>복습</title>
+	
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		li{
+			list-style: none;
+		}
+		nav{
+			background-color: cornsilk;
+		}
+		.menu{
+			height: 50px;
+			width: 100px;
+			text-align: center;
+			line-height: 48px;
+			font-size: 25px;
+			border: 1px solid cornsilk;
+		}
+		.menu:hover{
+			border-color: crimson;
+		}
+		nav>ul{
+			display: flex;
+		}
+		nav li{
+			cursor: pointer;
+		}
+		.menu>ul{
+			width: 200px;
+			margin-top: 1px;
+			display: none;
+		}
+		.sub-menu{
+			background-color: beige;
+			border: 1px solid beige;
+		}
+		.sub-menu:hover{
+			border-color: blueviolet;
+		}
+		.ham{
+			width: 50px;
+			height: 50px;
+			line-height: 48px;
+			text-align: center;
+			border: 1px solid cornsilk;
+			font-size: 30px;
+			position: absolute;
+			right: 0;
+		}
+		.ham:hover{
+			border-color: red;
+		}
+		.side-menu{
+			width: 200px;
+			height: 500px;
+			background-color: teal;
+			margin-left: -200px;
+		}
+		.show{
+			margin-left: 0;
+		}
+	</style>
+	<script src="../js/jquery.min.js"></script>
+	<script src="https://kit.fontawesome.com/77e3f1eeb9.js" 
+		crossorigin="anonymous"></script>
+	<script>
+		$(document).ready(function(){
+			/*
+			$('.menu1').click(function(){
+				$('.menu>ul').slideToggle(500);
+			})
+			*/
+			$('.menu').click(function(){
+				$(this).children('ul').slideToggle(500);
+			})
+			$('.ham').click(function(){
+				//사이드 메뉴가 안보이는 경우
+				if(!$('.side-menu').hasClass('show')){
+					$('.side-menu').animate({'margin-left':'0'},1000);
+				}
+				//사이드가 메뉴가 보이는 경우
+				else{
+					$('.side-menu').animate({'margin-left':'-200px'},1000);
+				}
+				//사이드 메뉴가 나왔는지 안나왔는지를 확인하기 위해
+				//show라는 클래스를 이용, show 클래스는 css는 없는 클래스
+				$('.side-menu').toggleClass('show');
+			})
+		})
+	</script>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li class="menu menu1">메뉴1
+				<ul>
+					<li class="sub-menu">서브1</li>
+					<li class="sub-menu">서브2</li>
+				</ul>
+			</li>
+			<li class="menu menu2">메뉴2
+				<ul>
+					<li class="sub-menu">서브1</li>
+					<li class="sub-menu">서브2</li>
+				</ul>
+			</li>
+			<li class="menu menu3">메뉴3</li>
+			<li class="ham"><i class="fas fa-bars"></i></li>
+		</ul>
+	</nav>
+	<div class="side-menu show"></div>
+</body>
+</html>

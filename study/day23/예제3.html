@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="../js/jquery.min.js"></script>
+	<script>
+		$(function(){
+			/*
+			keyup() : 키보드를 땠을 때 동작
+			keydown() : 모든 키보드를 눌렀을 때 동작
+			keypress() : 키보드를 눌렀을 때 동작,
+			  하지만 컨트롤키와 같은 특수 키들을 눌렀을 때
+				동작하지 않음
+			*/
+			$('body').keyup(function(){
+				console.log('up');
+			})
+			$('body').keypress(function(){
+				console.log('press');
+			})
+			$('body').keydown(function(event){
+				//눌린 키의 값(keyCode)을 확인
+				console.log(event.keyCode);
+				console.log('down');
+			})
+		})
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

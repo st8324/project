@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="../js/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$('.input').change(function(){
+				$(this).next().text('');
+				var str = $(this).val();
+				var id = $(this).prop('id');
+				/*
+				아이디 입력창의 내용이 바뀌었는데 빈문자열인 경우
+				비번 입력창의 내용이 바뀌었는데 빈문자열인 경우
+				*/
+				if(id != 'pw2' && str.length == 0){
+					$(this).next().text('필수항목입니다.');
+				}
+				else if(id == 'id' && (str.length < 5 || str.length > 10)){
+					$(this).next().text('아이디는 최소 5자에서 최대 10자입니다.');
+				}
+				else if(id == 'pw1' && (str.length < 8 || str.length > 15)){
+					$(this).next().text('비밀번호는 최소 8자에서 최대 15자입니다.');
+				}
+				else if(id == 'pw2'){
+					var str2 = $('#pw1').val();
+					if(str != str2){
+						$(this).next().text('비밀번호와 일치하지 않습니다.');
+					}
+				}
+			})
+			$('#pw1').keyup(function(){
+				$(this).next().html('')
+			})
+			$('form').submit(function(){
+				var submit = true;
+				var id = $('#id').val();
+				if(id.length == 0){
+					$('#idError').text('필수항목입니다.');
+					submit = false;
+				}else if(id.length < 5 || id.length > 10){
+					$('#idError').text('아이디는 최소 5자에서 최대 10자입니다.');
+					submit = false;
+				}
+				var pw1 = $('#pw1').val();
+				if(pw1.length == 0){
+					$('#pw1Error').text('필수항목입니다.');
+					submit = false;
+				}else if(pw1.length < 8 || pw1.length > 15){
+					$('#pw1Error').text('비밀번호는 최소 8자에서 최대 15자입니다.');
+					submit = false;
+				}
+				var pw2 = $('#pw2').val();
+				if(pw1 != pw2){
+					$('#pw2Error').text('비밀번호와 일치하지 않습니다.')
+					submit = false;
+				}
+				return submit;
+			})
+		})
+	</script>
+	<style>
+		.container{
+			width: 400px;
+			margin: 100px auto 0;
+		}
+		.input,button{
+			height: 30px;
+			font-size: 18px;
+			border: 1px solid blue;
+			border-radius: 5px;
+			margin-bottom: 10px;
+			width: 100%;
+			background-color: white;
+		}
+		h1{
+			text-align: center;
+		}
+		button:hover{
+			background-color: azure;
+			cursor: pointer;
+		}
+		.error{
+			color: red;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>회원가입</h1>
+		<form action="">
+			<input type="text" class="input" placeholder="아이디" id="id">
+			<div class="error" id="idError"></div>
+			<input type="password" class="input" placeholder="비번" id="pw1">
+			<div class="error" id="pw1Error"></div>
+			<input type="password" class="input" placeholder="비번확인" id="pw2">
+			<div class="error" id="pw2Error"></div>
+			<button>회원가입</button>
+		</form>
+	</div>
+</body>
+</html>

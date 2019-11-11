@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>버튼 클릭 예제</title>
+	<script src="../js/jquery.min.js"></script>
+	<script>
+		$(function(){
+			/*
+			이벤트 대상 : 버튼1
+			이벤트 이름 : click
+			필요 함수 : toggle()
+			*/
+			$('#btn1').click(function(){
+				$('.box').toggle();
+			})
+			/*
+			이벤트 대상 : 버튼2
+			이벤트 이름 : click
+			필요 함수 : show(),hide(),css()
+			1. 박스의 display의 속성값(css)을 가져온다.
+			2. 가져온 값이 none이면 show()를 호출하고
+				 아니면 hide()를 호출한다.
+			*/
+			$('#btn2').click(function(){
+				if($('.box').css('display') == 'none'){
+					$('.box').show();
+				}else{
+					$('.box').hide();
+				}
+			})
+		})
+	</script>
+	<style>
+		button{
+			height: 30px;
+			line-height: 30px;
+			border: 1px solid red;
+			border-radius: 3px;
+			background-color: white;
+		}
+		.box{
+			width: 300px;
+			height: 300px;
+			border: 1px solid black;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">toggle이용</button>
+	<button id="btn2">show,hide 이용</button>
+	<div class="box"></div>
+</body>
+</html>

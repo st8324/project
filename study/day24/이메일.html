@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>이메일</title>
+	<script src="../js/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$('#domain').change(function(){
+				//select박스에서 선택된 값의 value를 가져와서 str에 저장
+				var str = $(this).val();
+				//도메인 입력창에 select박스에서 가져온 값(str)으로 설정
+				$('#email').val(str);
+				//직접입력이면 readonly를 false로
+				if(str ==''){
+					$('#email').prop('readonly',false);
+				}else{
+					$('#email').prop('readonly',true);
+				}
+			})
+		})
+	</script>
+</head>
+<body>
+	<input type="text" id="id">@
+	<input type="text" id="email">
+	<select id="domain">
+		<option value="">직접입력</option>
+		<option value="naver.com">네이버</option>
+		<option value="hanmail.net">다음</option>
+	</select>
+</body>
+</html>

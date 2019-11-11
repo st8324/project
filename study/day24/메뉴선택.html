@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>메뉴 선택 예제</title>
+	<script src="../js/jquery.min.js"></script>
+	<script>
+		$(function(){
+			/*
+			대상 : 메뉴
+			이벤트 : click
+			사용해야하는 함수들 :
+			- addClass(), removeClass()
+			동작순서
+			1. 전체 메뉴에 A라는 클래스를 제거한다
+			2. 클릭한 메뉴에만 A라는 클래스를 추가한다
+			*/
+			$('.menu').click(function(){
+				$('.menu').removeClass('bg-white');
+				$(this).addClass('bg-white');
+			})
+		});
+	</script>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.menu{
+			list-style: none;
+			height: 50px;
+			width: 100px;
+			text-align: center;
+			line-height: 49px;
+			font-size: 30px;
+			color: white;
+			font-weight: bold;
+			cursor: pointer;
+		}
+		.menu:hover, .bg-white{
+			color: gray;
+			background-color: white;
+		}
+		.nav{
+			background-color: gray;
+			display: flex;
+		}
+
+	</style>
+</head>
+<body>
+	<ul class="nav">
+		<li class="menu">메뉴1</li>
+		<li class="menu">메뉴2</li>
+		<li class="menu">메뉴3</li>
+	</ul>
+</body>
+</html>

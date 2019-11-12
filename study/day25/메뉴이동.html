@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>메뉴이동</title>
+	<script src="../js/jquery.min.js"></script>
+	<script>
+		/*
+		대상 : 버튼
+		이벤트 : click
+		관련함수들
+		- .eq(index) : index+1번째 요소를 선택
+		- .removeClass('클래스명') : 클래스 제거
+		- .addClass('클래스명') : 클래스 추가
+		- .length : 해당 요소들의 갯수
+		동작순서
+		0. 전역변수 index 선언 초기값 : 0
+		1. 모든 메뉴에 select 클래스를 제거
+		2. 다음 또는 이전 메뉴에 select 클래스 추가
+		2-1. 다음 버튼인 경우 
+			- index에 1을 더함
+			- index가 최대 길이를 넘지 않도록 처리
+			- 더해진 index와 일치하는 요소에 select 클래스 추가
+		2-2. 이전 버튼인 경우
+			- index에 1을 뺌
+			- index가 0보다 작지 않도록 처리
+			- 뺀 index와 일치하는 요소에 select 클래스 추가
+		*/
+		//0. 전역변수 index 선언 초기값 : 0
+		var index = 2;
+		$(function(){
+			$('.btn').click(function(){
+				//1. 모든 메뉴에 select 클래스를 제거
+				$('.menu').removeClass('select');
+				//2. 버튼 구분 : 왼쪽버튼이면
+				if($(this).hasClass('left')){
+					//- index에 1을 뺌
+					index--;
+					//- index가 0보다 작지 않도록 처리
+					if(index < 0){
+						index = 0
+					}
+					//- 처리된 index와 일치하는 요소에 select 클래스 추가
+					$('.menu').eq(index).addClass('select');
+				}
+				//2. 버튼 구분 : 오른쪽버튼이면
+				else{
+					//- index에 1을 더함
+					index++;
+					//- index가 최대 길이를 넘지 않도록 처리
+					if(index == $('.menu').length){
+						index = $('.menu').length - 1;
+					}
+					//- 처리된 index와 일치하는 요소에 select 클래스 추가
+					$('.menu').eq(index).addClass('select');
+				}
+			})
+			$('.menu').click(function(){
+				$('.menu').removeClass('select');
+				$(this).addClass('select');
+				var cnt = 0;
+				/*
+				목표 : 클릭한 메뉴의 위치와 index를 일치시킨다.
+				each를 이용하여 모든 메뉴의 정보들을 하나씩 끄집어 댄다.
+				 - 끄집어 낸 메뉴에 select 클래스가 있는지 확인하여
+				   있으면 index의 값을 cnt로 설정한다.
+				 - cnt를 하나 증가시키고
+				*/
+				/*
+				$('.menu').each(function(){
+					
+					if($(this).hasClass('select')){
+						index = cnt;
+					}
+					cnt++;
+					
+				})
+				*/
+				/*
+				menu클래스에 미리 지정된 value값을 가져와서
+				정수로 변환한뒤 index에 저장
+				*/
+				index = parseInt($(this).prop('value'));
+			})
+		})
+	</script>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		a{
+			text-decoration: none;
+			color: white;
+		}
+		.menu{
+			list-style: none;
+			text-align: center;
+			height: 50px;
+			width: 100px;
+			line-height: 48px;
+			font-weight: bold;
+			border: 1px solid teal;
+		}
+		.nav{
+			background-color: teal;
+			display: flex;
+		}
+		.select{
+			background-color: tomato;
+			border-color: red;
+		}
+		.btn{
+			width: 50px;
+			height: 50px;
+			border: 1px solid black;
+			background-color: white;
+			margin:20px 20px;
+		}
+	</style>
+</head>
+<body>
+	<ul class="nav">
+		<li class="menu " value="0"><a href="#">메뉴1</a></li>
+		<li class="menu" value="1"><a href="#">메뉴2</a></li>
+		<li class="menu select" value="2"><a href="#">메뉴3</a></li>
+	</ul>
+	<button class="btn left"><</button>
+	<button class="btn right">></button>
+</body>
+</html>

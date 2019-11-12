@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>설문지</title>
+	<script src="../js/jquery.min.js"></script>
+	<script>
+		//cnt1은 스크립트가 실행될 때 선언되서 스크립트가 다 끝날
+		//때까지(페이지가 넘어갈 때) 유지된다.
+		var cnt1 = 0;
+		$(function(){
+			$('button').click(function(){
+				//버튼을 클릭할 때 cnt2가 생성되어 클릭이벤트가 종료되
+				//기전까지 유지된다.
+				//지역변수(cnt2) 전역변수(cnt1) 차이를 보여주는 예제
+				var cnt2 = 0;
+				cnt1++;
+				cnt2++;
+				console.log('cnt1',cnt1);
+				console.log('cnt2',cnt2);
+				var cnt = 0;//체크된 체크박스의 갯수
+				var str = '';
+				var arr = [];
+				//클래스가 checkbox인 요소들을 각각 가져와서
+				//fuction()에 구현된 작업을 실행
+				$('.checkbox').each(function(){
+					//각 체크박스의 checked속성이 true인 요소의
+					//갯수를 파악
+					//체크박스에서 꺼내온 요소 하나 this
+					if($(this).prop('checked')){
+						cnt++;
+						str += (cnt == 1?'':',')+ $(this).val();
+						arr.push($(this).val());
+					}
+				})
+				//클릭한 button이 this
+				$(this)
+				if(cnt == 0){
+					alert('1개이상 선택하세요.')
+					return false;
+				}else{
+					//alert(str);
+					alert(arr.join(','));
+				}
+			})
+		})
+	</script>
+</head>
+<body>
+	<form action="">
+		<h1>취미를 선택하세요.(1개이상)</h1>
+		<div>
+			<input type="checkbox" class="checkbox" value="야구">야구
+		</div>
+		<div>
+			<input type="checkbox" class="checkbox" value="축구">축구
+		</div>
+		<div>
+			<input type="checkbox" class="checkbox" value="농구">농구
+		</div>
+		<div>
+			<input type="checkbox" class="checkbox" value="기타">기타
+		</div>
+		<button>제출</button>
+	</form>
+</body>
+</html>

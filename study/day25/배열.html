@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>배열</title>
+	<script src="../js/jquery.min.js"></script>
+	<script>
+		var arr = [];
+		$(function(){
+			$('.box').click(function(){
+				//선택한 박스의 숫자를 가져와서 val에 저장
+				var val = $(this).text();
+				//val의 값이 arr에 있으면 배열에서 빼고 select 클래스를
+				//제거한다.
+				//indexOf의 값이 0이상이면 val의 값이 arr에 있다
+				if(arr.indexOf(val) >= 0 ){
+					arr.splice(arr.indexOf(val),1);
+					$(this).toggleClass('select');
+				}
+				else if(arr.length < 3){
+					arr.push(val);
+					$(this).toggleClass('select');
+				}else{
+					alert('3개를 초과할 수 없습니다.');
+				}
+			})
+		})
+	</script>
+	<style>
+		.box{
+			width: 50px;
+			height: 50px;
+			background-color: gray;
+			font-size: 30px;
+			line-height: 48px;
+			display: inline-block;
+			text-align: center;
+			color: white;
+			font-weight: bold;
+			cursor: pointer;
+		}
+		.select{
+			background-color: cornsilk;
+			color: black;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">1</div>
+	<div class="box">2</div>
+	<div class="box">3</div>
+	<div class="box">4</div>
+	<div class="box">5</div>
+	<div class="box">6</div>
+	<div class="box">7</div>
+	<div class="box">8</div>
+	<div class="box">9</div>
+</body>
+</html>

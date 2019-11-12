@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>설문지</title>
+	<script src="../js/jquery.min.js"></script>
+	<script>
+		/*
+		대상 : check박스
+		이벤트 : change 또는 click
+		관련함수들 : prop()
+		실행순서
+		1. 전역변수를 하나 선언한다. cnt
+		2. 현재 내용이 바뀐 체크박스의 checked가
+			true이면 변수의 값을 하나 증가한다.
+		3. false이면 변수의 값을 하나 감소한다.
+		*/
+		var cnt = 0;//현제 체크된 체크 박스의 갯수
+		$(function(){
+			$('.checkbox').change(function(){
+				if($(this).prop('checked')){
+					cnt++;
+				}else{
+					cnt--;
+				}
+			})
+			/*
+			대상 : 제출버튼, form태그
+			이벤트 : click, submit
+			관련 함수들 : 
+			실행 순서
+			1. chekc박스에서 선언한 전연벽수의 값이 0이면
+				알림창을 띄우고 return을 false로 하여
+				submit()을 막음
+			2. 0이 아니면 submit()을 진행
+			*/
+			$('button').click(function(){
+				if(cnt == 0){
+					alert('1개이상 선택하세요.');
+					return false;
+				}
+			})
+		})
+	</script>
+</head>
+<body>
+	<form action="">
+		<h1>취미를 선택하세요.(1개이상)</h1>
+		<div>
+			<input type="checkbox" class="checkbox">야구
+		</div>
+		<div>
+			<input type="checkbox" class="checkbox">축구
+		</div>
+		<div>
+			<input type="checkbox" class="checkbox">농구
+		</div>
+		<div>
+			<input type="checkbox" class="checkbox">기타
+		</div>
+		<button>제출</button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="../js/jquery.min.js"></script>
+	<script>
+		$(function(){
+			var inputs = $('input');
+			var i;
+			/*
+			$('선택자').length : 해당 선택자가 있는 요소들의 갯수
+			$('선택자').eq(index) : 해당 선택자가 있는 요소들 중
+				index번째에 있는 요소, index는 0부터 시작
+			*/
+			for(i=0; i<inputs.length; i++){
+				console.log(inputs.eq(i).val())
+			}
+			$('input').each(function(){
+				console.log($(this).val())
+			})
+		})
+	</script>
+</head>
+<body>
+	<input type="checkbox" value="1">
+	<input type="checkbox" value="2">
+	<input type="checkbox" value="3">
+	<input type="checkbox" value="4">
+</body>
+</html>

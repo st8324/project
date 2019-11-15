@@ -38,6 +38,7 @@ body{
 .box{
 	width: 100%;
 	margin-top: 8px;
+	border: 1px solid black/*#dee3eb*/;
 }
 .contents1{
 	height: 120px;
@@ -47,6 +48,7 @@ body{
 }
 .box-left>.contents3{
 	height: 246px;
+	overflow: hidden;
 }
 .contents4{
 	height: 884px;
@@ -310,6 +312,89 @@ body{
 	height: 11px;
 	background-position: -433px -303px;
 	display: inline-block;
+}
+.r2-top-right{
+	display: flex;
+	font-size: 12px;
+	line-height: 33px;
+	font-weight: bold;
+	font-family: Tahoma,sans-serif;
+	color: #888;
+	letter-spacing: -2px;
+}
+.r2-page-box{
+	margin-right: 8px;
+}
+.page-current{
+	color: black;
+}
+/* 왼쪽 3번째 컨텐츠 관련 css */
+.l3-top{
+	height: 45px;
+	border-bottom: 1px solid #ebeef3;
+}
+.l3-bot{
+	height: 200px;
+	width: calc(100% + 2px);
+}
+.l3-row{
+	height: 67px;
+	border-bottom: 1px solid #ebeef3;
+	display: flex;
+}
+.l3-row:last-of-type{
+	border-bottom: none;
+}
+.l3-item{
+	width: 100%;
+	border-right: 1px solid #ebeef3;
+	height: 100%;
+	padding: 21px 0 22px;
+	position: relative;
+}
+.l3-item:hover{
+	background-color: #f9fafc;
+}
+
+.l3-item-in{
+	height: 100%;
+	text-align: center;
+}
+.l3-item-hover{
+	position: absolute;
+	height: 100%;
+	top: 0px;
+	width: 100%;
+	font-size: 12px;
+	text-align: center;
+	padding: 18px 0;
+	background-color: #f9fafc;
+}
+.subs{
+	width: 36px;
+	height: 30px;
+	border: 1px solid #e3e7ee;
+	border-right: 1px solid #fff;
+	display: inline-block;
+	line-height: 30px;
+	text-decoration: none;
+	font-weight: bold;
+	background-color: white;
+	color: black;
+}
+.show{
+	width: 50px;
+	height: 30px;
+	border: 1px solid #e3e7ee;
+	display: inline-block;
+	line-height: 30px;
+	text-decoration: none;
+	font-weight: bold;
+	background-color: white;
+	color: black;
+}
+.subs:hover,.show:hover{
+	border-color: #bec8d8;
 }
 /* 배경 이미지 관련 css */
 .bg1{

@@ -9,6 +9,8 @@ $(function(){
 	$('.more').click(function(){
 		$(this).toggleClass('fold');
 		$('.more-box').toggle();
+		$('.white-menu-sub1').removeClass('display-none');
+		$('.white-menu-sub2').addClass('display-none');
 	})
 	$('.r2-btn').click(function(){
 		//다음페이지로 가야할지 이전페이지로 가야할지를 결정하는 변수
@@ -41,5 +43,23 @@ $(function(){
 	})
 	$('.l3-item').hover(function(){
 		$(this).find('.l3-item-hover').toggle();
+	})
+	//x버튼 클릭
+	$('.white-menu-close').click(function(){
+		//$('.more').toggleClass('fold');//접기->더보기로
+		//$('.more-box').toggle();//박스 접는 역할
+		//위 코드와 more버튼 클릭한 코드가 같기 때문에 
+		//more버튼을 클릭한 이벤트를 실행
+		$('.more').click();
+	})
+	//메뉴설정 버튼 클릭
+	$('.white-menu-setting').click(function(){
+		$('.white-menu-sub1').toggleClass('display-none');
+		$('.white-menu-sub2').toggleClass('display-none');
+	})
+	//취소 버튼 클릭
+	$('.white-menu-cancle').click(function(){
+		$('.white-menu-sub1').toggleClass('display-none');
+		$('.white-menu-sub2').toggleClass('display-none');
 	})
 })

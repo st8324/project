@@ -245,6 +245,7 @@ body{
 	height: 14px;
 	background: red/*#ebeef3*/;
 }
+/* 더보기와 관련된 css */
 .more{
 	background-position: 0 -104px;
 	width: 55px;
@@ -275,6 +276,105 @@ body{
 	height: 353px;
 	background-color: white;
 	z-index: 11;
+}
+.white-menu{
+	height: 45.8px;
+	padding-top: 8px;
+	position: absolute;
+	top: -47px;
+	right: -5px;
+	background-color: white;
+	display: flex;
+}
+.white-menu-sub1,
+.white-menu-sub2{
+	display: flex;
+}
+.white-menu-service,
+.white-menu-setting,
+.white-menu-init,
+.white-menu-ok,
+.white-menu-cancle
+{
+	border: 1px solid #e3e7ee;
+	height: 30px;
+	line-height: 29px;
+	text-align: center;
+	color: #444;
+	font-size: 12px;
+	cursor: pointer;
+}
+.white-menu-service:hover,
+.white-menu-setting:hover,
+.white-menu-init:hover,
+.white-menu-ok:hover,
+.white-menu-cancle:hover{
+	border-color: #bec8d8;
+}
+.white-menu-service{
+	width: 98px;
+}
+.white-menu-setting{
+	width: 68px;
+	margin-left: 5px;
+}
+.white-menu-init{
+	width: 75px;
+}
+.white-menu-ok{
+	width: 55px;
+	margin-left: 8px;
+}
+.white-menu-cancle{
+	width: 55px;
+	margin-left: 5px;
+}
+.white-menu-close{
+	width: 27px;
+	height: 27px;
+	margin: 2px 0 0 9px;
+	cursor: pointer;
+	padding: 5px;
+}
+.close-icon{
+	width: 22px;
+	height: 22px;
+	background-position: -191px -257px;
+}
+.close-icon:hover{
+	background-position: -164px -257px;
+}
+.menu-list{
+	padding: 20px 0 15px;
+	display: flex;
+}
+.menu-sub-list{
+	width: 154px;
+	border-right: 1px solid #f1f3f6;
+	height: 318px;
+	padding-left: 16px;
+}
+.menu-sub-list:first-of-type{
+	width: 156px;
+	border-left: 1px solid #f1f3f6;
+}
+.menu-sub-title{
+	padding-top: 6px;
+	color: #000;
+	vertical-align: top;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 16px;
+}
+.menu-sub{
+	overflow: hidden;
+	padding-top: 10px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 12px;
+}
+.menu-sub:first-of-type{
+	padding-top: 14px;
 }
 /* 오른쪽 2번째 컨텐츠 관련 css */
 .r2-top{
@@ -408,6 +508,9 @@ body{
 }
 .bg4{
 	background-image: url('https://s.pstatic.net/static/www/img/2017/sp_timesquare_v170913a.png');
+}
+.bg5{
+	background-image: url('https://s.pstatic.net/static/www/img/2018/sp_themecast_v180607.png');
 }
 /* footer와 관련된 css */
 .footer{

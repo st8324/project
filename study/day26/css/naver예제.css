@@ -372,9 +372,28 @@ body{
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	font-size: 12px;
+	height: 25px;
 }
 .menu-sub:first-of-type{
 	padding-top: 14px;
+}
+.check-box{
+	display: flex;
+}
+.checkbox-input{
+	visibility: hidden;
+	position: absolute;
+}
+.check-img{
+	width: 15px;
+	height: 15px;
+	background-position: -28px -62px;
+	margin-right: 8px;
+	display: inline-block;
+	vertical-align: -3px;
+}
+.checked-img{
+	background-position: -53px -62px;
 }
 /* 오른쪽 2번째 컨텐츠 관련 css */
 .r2-top{
@@ -511,6 +530,9 @@ body{
 }
 .bg5{
 	background-image: url('https://s.pstatic.net/static/www/img/2018/sp_themecast_v180607.png');
+}
+.bg6{
+	background-image: url('https://s.pstatic.net/static/www/img/2018/sp_more_v180627.png');
 }
 /* footer와 관련된 css */
 .footer{

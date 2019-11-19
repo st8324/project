@@ -1,3 +1,32 @@
+var oriMenu = ["dic","news","stock","deal","map"
+			,"movie",	"music","book","comic"];
+var selMenu = [];
+
+/* 검은색 메뉴를 초기화 하는 함수 */
+function initBlackMenu(){
+	var i = 0;
+	$('.black-container>a').each(function(){
+		//요소의 모든 클래스 제거
+		$(this).prop('class','');
+		$(this).addClass('black-box');
+		$(this).addClass('bg3');
+		$(this).addClass(oriMenu[i]);
+		if(i<5){
+			$(this).addClass('box-menu');
+		}
+		i++;
+	})
+}
+//white-box가 닫히면서 해야할 작업들
+function closeWhiteBox(){
+	//검은 메뉴를 초기화할지 아니면 선택된 메뉴로 보여줄지 결정
+	if(selMenu.length == 0){
+		initBlackMenu();
+	}else{
+
+	}
+}
+
 $(function(){
 	$('.keyboard').click(function(){
 		$('.keyboard-icon').toggleClass('active');
@@ -11,6 +40,11 @@ $(function(){
 		$('.more-box').toggle();
 		$('.white-menu-sub1').removeClass('display-none');
 		$('.white-menu-sub2').addClass('display-none');
+		//체크박스 관련 부분
+		$('.check-img').addClass('display-none');
+		if(!$(this).hasClass('fold')){
+			closeWhiteBox();
+		}
 	})
 	$('.r2-btn').click(function(){
 		//다음페이지로 가야할지 이전페이지로 가야할지를 결정하는 변수
@@ -56,10 +90,43 @@ $(function(){
 	$('.white-menu-setting').click(function(){
 		$('.white-menu-sub1').toggleClass('display-none');
 		$('.white-menu-sub2').toggleClass('display-none');
+		//체크박스 관련 부분
+		$('.check-img').removeClass('display-none');
+		//검은 메뉴 처리 부분
+		$('.black-container .black-box').each(function(){
+			if(!$(this).hasClass('box-menu')){
+				$(this).addClass('display-none');
+			}else{
+				$(this).prop('class','box-menu');
+			}
+		})
 	})
 	//취소 버튼 클릭
 	$('.white-menu-cancle').click(function(){
 		$('.white-menu-sub1').toggleClass('display-none');
 		$('.white-menu-sub2').toggleClass('display-none');
+		//체크박스 관련 부분
+		$('.check-img').addClass('display-none');
+		closeWhiteBox();
+	})
+	//메뉴설정에서 체크박스를 선택했을 때
+	$('.check-box').click(function(){
+		/*
+		체크를 해제하는 상황은 신경 쓸 필요가 없다.
+		체크를 해야하는 상황은 신경써야한다. 최대 갯수가 지정 : 5
+		*/
+		if(!$(this).find('.check-img').hasClass('checked-img')){
+			if($('.checked-img').length == 5){
+				alert('최대 5개까지 선택 가능합니다.');
+				return ;
+			}
+		}
+
+		$(this).find('.check-img').toggleClass('checked-img');
+		if($(this).find('.check-img').hasClass('checked-img')){
+			$(this).find('.checkbox-input').prop('checked',true);
+		}else{
+			$(this).find('.checkbox-input').prop('checked',false);
+		}
 	})
 })

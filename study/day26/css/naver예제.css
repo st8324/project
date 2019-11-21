@@ -447,6 +447,50 @@ body{
 .page-current{
 	color: black;
 }
+/* 실시간 검색 관련 css */
+.real-search-container{
+	width: 198px;
+	height: 20px;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	margin-top: -10px;
+	overflow: hidden;
+}
+.real-search-list{
+	list-style: none;
+}
+.real-search-item{
+	padding: 0 0 0 21px;
+}
+.real-search-link{
+	text-decoration: none;
+	color: black;
+}
+.real-search-rank{
+	position: absolute;
+	min-width: 17px;
+	line-height: 18px;
+	left: 0;
+	text-align: center;
+	font-size: 16px;
+	color: #00ab33;
+}
+.real-search-title{
+	width: 140px;
+	letter-spacing: -1px;
+	font-size: 14px;
+	vertical-align: top;
+}
+.real-search-icon{
+	width: 11px;
+	height: 6px;
+	background-position: -223px -147px;
+	position: absolute;
+	top: 50%;
+	right: 4px;
+	margin-top: -3px;
+}
 /* 왼쪽 3번째 컨텐츠 관련 css */
 .l3-top{
 	height: 45px;
@@ -533,6 +577,9 @@ body{
 }
 .bg6{
 	background-image: url('https://s.pstatic.net/static/www/img/2018/sp_more_v180627.png');
+}
+.bg7{
+	background-image: url('https://s.pstatic.net/static/www/img/uit/2019/sp_main_v191113.png');
 }
 /* footer와 관련된 css */
 .footer{

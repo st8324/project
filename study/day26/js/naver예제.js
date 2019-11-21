@@ -40,12 +40,21 @@ $(function(){
 	})
 
 	$('.more').click(function(){
+		//더보기 메뉴를 접기로, 접기 메뉴를 더보기로 바꿈
 		$(this).toggleClass('fold');
+		//흰박스와 반투명 박스를 열었다 접었다
 		$('.more-box').toggle();
+		//서비스 전체복, 메뉴설정을 보여줌
 		$('.white-menu-sub1').removeClass('display-none');
+		//초기화 확인 취소를 가려줌
 		$('.white-menu-sub2').addClass('display-none');
 		//체크박스 관련 부분
 		$('.check-img').addClass('display-none');
+		/*접어야 하는 경우, 설정된 메뉴에 맞춰 검은색 메뉴를
+		출력하도록 함
+		 - 메뉴 설정 버튼 클릭 후 접었을 때 빈 박스들이 사라지면서
+			 이전 메뉴들이 출력해야하는 경우
+		*/
 		if(!$(this).hasClass('fold')){
 			initBlackMenu();
 		}
@@ -69,7 +78,6 @@ $(function(){
 		//검은 메뉴 처리 부분
 		selMenuTmp = selMenu.slice(0);
 		drawMenu(selMenuTmp);
-		//녹색박스 설정
 		
 	})
 	//취소 버튼 클릭
@@ -78,11 +86,10 @@ $(function(){
 		$('.white-menu-sub2').toggleClass('display-none');
 		//체크박스 관련 부분
 		$('.check-img').addClass('display-none');
-		closeWhiteBox();
 		//메뉴 설정에서 선택된 메뉴들을 적용하지 않게다
 		selMenuTmp = [];
 		setInputCheckbox(selMenu);
-		initBlackMenu(selMenu);
+		initBlackMenu();
 	})
 	//메뉴설정에서 체크박스를 선택했을 때
 	$('.check-box').click(function(){
@@ -90,19 +97,41 @@ $(function(){
 		체크를 해제하는 상황은 신경 쓸 필요가 없다.
 		체크를 해야하는 상황은 신경써야한다. 최대 갯수가 지정 : 5
 		*/
+		/*
+		흰 체크박스를 클릭했을 때
+		=> 개인설정 메뉴에 추가될수 있는 상황
+		*/
 		if(!$(this).find('.check-img').hasClass('checked-img')){
+			//이미 5개가 체크되어 더 추가될수 없으면
 			if($('.checked-img').length == 5){
 				alert('최대 5개까지 선택 가능합니다.');
 				return ;
 			}
 		}
+		/* 
+		선택된 메뉴의 클래스명을 가져옴
+		== input태그에 지정된 value값을 가져옴
+		 */
 		var value=$(this).find('.checkbox-input').val();
+		//흰체크박스로 만들거나 녹색체크박스로 만듬		
 		$(this).find('.check-img').toggleClass('checked-img');
+		
+		//녹색체크박스가 됐으면
 		if($(this).find('.check-img').hasClass('checked-img')){
 			$(this).find('.checkbox-input').prop('checked',true);
-		}else{
+		}
+		//흰색체크가 됐으면
+		else{
 			$(this).find('.checkbox-input').prop('checked',false);
 		}
+		/* 
+		선택된 메뉴를 selMenuTmp에 추가할지 삭제할지를 결정
+		 */
+		/*
+		selMenuTmp에 선택된 메뉴가 있는지 없는지 체크하는 부분으로
+		indexOf는 있으면 0보다 크거나 같은 값을 알려주고,
+		없으면 -1을 알려준다.
+		*/
 		var pos = selMenuTmp.indexOf(value);
 		//선택한 메뉴가 체크 된 경우
 		if(pos == -1){
@@ -117,6 +146,11 @@ $(function(){
 	})
 	//확인 버튼이 클릭되면
 	$('.white-menu-ok').click(function(){
+		/*
+		selMenuTmp = [ 'dic', 'news'];
+		selMenuTmp = []
+		selMenu = [ 'dic', 'news']
+		*/
 		selMenu = selMenuTmp.splice(0);
 		if(selMenu.length == 0){
 			alert('선택된 메뉴가 없습니다. 초기설정으로 돌아갑니다.')
@@ -139,25 +173,44 @@ var oriMenu = ["dic","news","stock","deal","map"
 var selMenu = [];//확인 버튼을 눌러 확정된 메뉴들
 var selMenuTmp = [];//메뉴설정에서 선택된 메뉴들
 
-/* 검은색 메뉴를 초기화 하는 함수 */
+/* 메뉴 설정 클릭 후 확인 버튼을 눌렀을 때,
+	 메뉴 설정 클릭 후 초기화 버튼을 눌렀을 때,
+	 메뉴 설정 클릭 후 취소 버튼을 눌렀을 때,
+	 X버튼을 눌렀을 때,
+	 접기 버튼을 눌렀을 때,
+   검은색 메뉴를 화면에 출력하는 함수 */
 function initBlackMenu(){
 	var i = 0;
-	//메뉴설정에서 선택된 메뉴가 있는 경우
+	//메뉴설정에서 1개이상 메뉴를 선택한 경우
 	if(selMenu.length != 0){
 		$('.black-container>a').each(function(){
+			//class=""
 			$(this).prop('class','');
+			/*i가 선택된 메뉴 갯수보다 작으면
+				class="black-box bg3 메뉴클래스명"
+				아니면 
+				class="display-none"
+			*/
 			if(i<selMenu.length){
 				$(this).addClass('black-box bg3 '+selMenu[i]);
 			}else{
 				$(this).addClass('display-none');
 			}
+			/* 메뉴 설정시 빈박스가 필요하기 때문에 앞에 5개에는
+			box-menu 클래스가 추가되어야 한다.
+			앞에 메뉴 5개는 
+			class="black-box bg3 메뉴클래스명 box-menu"이거나
+			class="display-none box-menu"이 된다
+			*/
 			if(i<5){
 				$(this).addClass('box-menu');
 			}
 			i++;
 		})
 	}
-	//초기화해야하는 경우
+	/*기본 설정 메뉴인 경우
+	  (초기화를 했거나, 메뉴를 0개 선택한 경우)
+	*/
 	else{
 		$('.black-container>a').each(function(){
 			//요소의 모든 클래스 제거
@@ -171,8 +224,12 @@ function initBlackMenu(){
 	}
 }
 
-//arr를 기준으로 검은색 메뉴들을 빈 박스 또는 선택된 메뉴로 배치
+/*
+	메뉴 설정을 눌렀을 때, 
+	arr를 기준으로 선택된 검은색 메뉴와 빈 박스를 출력하는 함수
+*/
 function drawMenu(arr){
+	//잘못된 배열이 왔을 때를 위한 예외처리
 	if(arr.length > 5){
 		return;
 	}
@@ -183,17 +240,22 @@ function drawMenu(arr){
 		if(i < arr.length){
 			$(this).addClass('black-box bg3 '+arr[i]);
 		}
-		//else{
 		$(this).addClass('box-menu');
-		//}
 		if(i>4){
 			$(this).addClass('display-none');
 		}
 		i++;
 	})
+	//녹색박스
 	$('.box-menu').eq(arr.length).addClass('select');
 }
-//arr를 기준으로 input 체크박스의 checked와 선택이미지를 설정하는 함수
+
+/*
+	메뉴 설정을 눌렀을 때, 
+	초기설정이 아닌 검은색 메뉴들과 체크박스를 일치시키는 함수
+	호출되는 상황
+	 - 메뉴 설정 버튼을 눌렀을 때
+*/
 function setInputCheckbox(arr){
 	$('.checkbox-input').each(function(){
 		/* 체크 박스의 value를 가져옴 */

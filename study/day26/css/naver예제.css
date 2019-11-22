@@ -491,6 +491,21 @@ body{
 	right: 4px;
 	margin-top: -3px;
 }
+/* 왼쪽 2번째 컨텐츠 관련 css */
+.l2-news_container{
+	height: 20px;
+	overflow: hidden;
+}
+.l2-news_container li{
+	height: 20px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 16px;
+	line-height: 20px;
+}
+.l2-news_container ul{
+	list-style: none;
+}
 /* 왼쪽 3번째 컨텐츠 관련 css */
 .l3-top{
 	height: 45px;

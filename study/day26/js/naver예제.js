@@ -167,7 +167,17 @@ $(function(){
 		$('.more').click();
 		setInputCheckbox(selMenu);
 	})
-})
+	/* 
+	setInterval(함수, 시간) : 일정 시간마다 함수를 동작시키는 함수
+
+	*/
+	setInterval(function(){
+		ticker('.real-search-container', 500);
+		ticker('.l2-news_container', 500);
+	},1000);
+	
+})//document.ready() 끝부분
+
 var oriMenu = ["dic","news","stock","deal","map"
 			,"movie",	"music","book","comic"];
 var selMenu = [];//확인 버튼을 눌러 확정된 메뉴들
@@ -273,4 +283,21 @@ function setInputCheckbox(arr){
 			$(this).prev().removeClass('checked-img')
 		}
 	})
+	
+}
+function ticker(selector, playTime){
+	var height = $(selector + ' li').css('height');
+	height = '-'+height;
+	$(selector + ' li').eq(0)
+		.animate({'margin-top':height}, playTime,
+		//animate에서 설정한 애니메이션을 다 실행한 후 실행되는 함수
+		function(){
+			/*
+			$(붙일곳).append(붙일애)
+			$(붙일애).appendTo(붙일곳)
+			*/
+			$(selector + ' li').eq(0).detach()
+				.appendTo(selector + ' ul')
+				.removeAttr('style');
+		});
 }

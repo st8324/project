@@ -23,10 +23,116 @@ body{
 	background-color: white;
 	display: flex;
 }
+/* 메뉴 css */
 .menu-list{
 	height: 52px;
-	background-color: #0eca68;
+	padding-left: 15px;
+	background-image: linear-gradient(to right,#0eca68,#00bf5f);
+	overflow: hidden;
+	position: relative;
 }
+.menu-list2{
+	background-image: linear-gradient(to right,#f09dba,#b781d6 50%,#8981e6)
+}
+.menu-list-container{
+	min-width: 100%;
+}
+.menu-item{
+	display: inline-block;
+	height: 51px;
+	margin: 0 4px 0 3px;
+	padding: 0 4px;
+	line-height: 51px;
+	position: relative;
+}
+.menu-item>div{
+	position: relative;
+	top: 13px;
+}
+.todo{
+	width: 46px;
+	height: 24px;
+	background-position: -49px -189px;
+}
+.enter{
+	width: 32px;
+	height: 24px;
+	background-position: -345px -243px;
+}
+.pay{
+	width: 54px;
+	height: 24px;
+	background-position: -198px -135px;
+}
+.selective{
+	width: 59px;
+	height: 24px;
+	background-position: -62px -162px;
+}
+.beauty{
+	width: 59px;
+	height: 24px;
+	background-position: 0 -162px;
+}
+.trand{
+	width: 45px;
+	height: 24px;
+	background-position: -260px -216px;
+}
+.home{
+	width: 18px;
+	height: 24px;
+	background-position: -283px -270px;
+}
+.news{
+	width: 33px;
+	height: 24px;
+	background-position: -108px -297px;
+}
+.ent{
+	width: 33px;
+	height: 24px;
+	background-position: -345px -27px;
+}
+.sports{
+	width: 46px;
+	height: 24px;
+	background-position: -260px -81px;
+}
+.chart{
+	width: 60px;
+	height: 24px;
+	background-position: -135px -108px;
+}
+.shop{
+	width: 33px;
+	height: 24px;
+	background-position: -288px -297px;
+}
+.place{
+	width: 60px;
+	height: 24px;
+	background-position: -63px -81px;
+}
+.feed{
+	width: 54px;
+	height: 24px;
+	background-position: -198px -108px;
+}
+.menu-plus{
+	display: block;
+	position: absolute;
+	padding: 18px 14px 18px 8px;
+	top: 0;
+	right: 0;
+	background-color: #00bf5f;
+}
+.plus{
+	width: 14px;
+	height: 14px;
+	background-position: -215px -146px;
+}
+
 .body{
 	margin-top: 112px;
 	position: relative;
@@ -71,7 +177,7 @@ body{
 	height: 387px;
 }
 .internet{
-	height: 337.8px;
+	height: 337.6px;
 }
 .edit{
 	height: 90.8px;
@@ -214,11 +320,107 @@ body{
 	text-align: right;
 	letter-spacing: -.3px;
 }
+.box1{
+	padding: 0 9px 14px 10px;
+}
+/* 인터넷,it지 css */
+.card-title{
+	height: 29.65px;
+	padding: 3px 5px 10px 6px;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 17px;
+	color: #555;
+	letter-spacing: -1px;
+	font-family: "Helvetica Neue","Apple SD Gothic Neo",sans-serif;
+}
+.card{
+	height: 293.65px;
+}
+.card-row{
+	display: flex;
+	margin-bottom: 11px;
+}
+.card-item{
+	width: 100%;
+	height: 87px;
+	background-color: #f2f4f9;
+	border: solid 1px #edeff4;
+	margin: 0 6px 0 5px;
+	position: relative;
+	cursor: pointer;
+	border-radius: 3px;
+}
+.card-item-select{
+	background-color: white;
+	border-color: #19c546;
+}
+.card-icon{
+	width: 42px;
+	height: 42px;
+	margin: 12px auto 0;
+	border-radius: 21px;
+	display: block;
+}
+.card-subs{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 13px;
+	height: 13px;
+	background-position: -594px -429px;
+}
+.card-subs-select{
+	height: 10px;
+	top: 7px;
+	background-position: -347px -516px;
+}
+.card-name{
+	margin-top: 4px;
+	text-align: center;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	line-height: 16px;
+	font-weight: 500;
+	letter-spacing: -.8px;
+	color: #444;
+	font-size: 13px;
+	font-family: "Helvetica Neue","Apple SD Gothic Neo",sans-serif;
+}
+.subs-count-box{
+	width: 220px;
+	height: 40px;
+	position: fixed;
+	bottom: 18px;
+	left: 50%;
+	margin-left: -110px;
+	background-image: linear-gradient(170deg,#02cf55,#1ec5a2);
+	border-radius: 20px;
+	z-index: 101;
+	border: none;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 19px;
+	letter-spacing: -1px;
+	color: #fff;
+}
+/* 배경 이미지 */
 .bg1{
 	background-image: url('https://s.pstatic.net/static/www/m/uit/2019/sp_search_v191106.png');
 	background-size: 451px 440px;
 }
-
+.bg2{
+	background-image: url('https://s.pstatic.net/static/www/m/uit/2019/sp_cui_v191114.png');
+	background-size: 621px 592px;
+}
+.bg3{
+	background-image: url('https://s.pstatic.net/static/www/m/uit/2019/sp_nav_3x_v190731.png');
+	background-size: 378px 321px;
+}
+.bg4{
+	background-image: url('https://s.pstatic.net/static/www/m/uit/2019/sp_search_v191126.png');;
+	background-size: 465px 441px;
+}
 .display-none{
 	display: none;
 }

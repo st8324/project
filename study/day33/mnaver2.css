@@ -4,6 +4,9 @@
 	margin: 0;
 	box-sizing: border-box;
 }
+html{
+	font-size: 10px;
+}
 body{
 	background-color: #eff2f8;
 }
@@ -95,6 +98,12 @@ body{
 	height: 22px;
 	background-position: -32px -312px;
 }
+.back-icon{
+	width: 21px;
+	height: 18px;
+	margin: 2px 0 0 3px;
+	background-position: -366px -298px;
+}
 .search-line{
 	height: 22px;
 	width: 1px;
@@ -104,12 +113,19 @@ body{
 	right: -1px;
 	margin-top: -11px;
 }
-.search-btn-group{
+.search-btn-group1{
 	width: 137px;
 	display: flex;
 	padding: 0 7px;
 }
-.search-btn-group>button{
+.search-btn-group2>button{
+	width: 58px;
+	height: 60px;
+	border: none;
+	background-color: white;
+}
+.search-btn-group1>button
+{
 	width: 40px;
 	margin-right: 1px;
 	height: 60px;
@@ -134,9 +150,18 @@ body{
 .btn-loc{
 	background-position: -321px -27px;
 }
+.btn-search{
+	width: 24px;
+	height: 24px;
+	margin: 0 auto;
+	background-position: -206px -93px;
+}
 .search-input{
 	width: calc(100% - 54px - 137px);
 	padding: 17px 0 16px 14px;
+}
+.search-input-focus{
+	width: calc(100% - 54px - 58px);
 }
 .search-input>input{
 	height: 27px;
@@ -152,8 +177,48 @@ body{
 .search-input>input::placeholder{
 	color: rgb(225, 236,246);
 }
-
+.search-list-box{
+	height: 210px;
+	width: 100%;
+	position: absolute;
+	top: 61px;
+	background-color: white;
+	z-index: 102;
+}
+.search-list{
+	overflow: hidden;
+	padding: 53px 0 54px;
+	color: #666;
+	line-height: 29px;
+	letter-spacing: -.3px;
+	font-size: 1.6rem;
+}
+.search-list>p{
+	text-align: center;
+}
+.search-list-deatail{
+	font-size: 1.5rem;
+	color: #8f8f8f
+}
+.search-list-deatail>a{
+	color: #00c73c;
+}
+.search-option{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 45px;
+	border-top: 1px solid #ecf0f2;
+	line-height: 46px;
+	text-align: right;
+	letter-spacing: -.3px;
+}
 .bg1{
 	background-image: url('https://s.pstatic.net/static/www/m/uit/2019/sp_search_v191106.png');
 	background-size: 451px 440px;
+}
+
+.display-none{
+	display: none;
 }

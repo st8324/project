@@ -44,6 +44,7 @@ body{
 	padding: 0 4px;
 	line-height: 51px;
 	position: relative;
+	width: auto;
 }
 .menu-item>div{
 	position: relative;
@@ -141,6 +142,9 @@ body{
 	clear: both;
 	content: "";
 	display: block;
+}
+.tabContents .swiper-slide{
+	margin-top: 112px;
 }
 .contents{
 	width: 50%;
@@ -404,6 +408,52 @@ body{
 	letter-spacing: -1px;
 	color: #fff;
 }
+/* 엔터 css */
+.enter-menu{
+	background-color: white;
+	padding: 11px 0;
+	width: 50%;
+}
+.enter-menu-container{
+	width: 202px;
+	height: 36px;
+	border: 1px solid rgb(213,209,255);
+	background-color: #f2f1ff;
+	margin: 0 auto;
+	border-radius: 18px;
+	display: flex;
+}
+.enter-menu-item{
+	width: 101px;
+	height: 36px;
+	text-align: center;
+	border-radius: 18px;
+}
+.enter-menu-item.select{
+	background-image: linear-gradient(to right,#9063fe,#686bfe);
+}
+.drama-icon{
+	width: 41px;
+	height: 14px;
+	background-position: -214px -323px;
+	display: inline-block;
+	position: relative;
+	top: 11px;
+}
+.enter-menu-item.select .drama-icon{
+	background-position: -260px -323px;
+}
+.enter-icon{
+	width: 27px;
+	height: 14px;
+	background-position: -276px -488px;
+	display: inline-block;
+	position: relative;
+	top: 11px;
+}
+.enter-menu-item.select .enter-icon{
+	background-position: -308px -488px;
+}
 /* 배경 이미지 */
 .bg1{
 	background-image: url('https://s.pstatic.net/static/www/m/uit/2019/sp_search_v191106.png');
@@ -420,6 +470,10 @@ body{
 .bg4{
 	background-image: url('https://s.pstatic.net/static/www/m/uit/2019/sp_search_v191126.png');;
 	background-size: 465px 441px;
+}
+.bg5{
+	background-image: url('https://s.pstatic.net/static/www/m/uit/2019/sp_cui_v191127.png');
+	background-size: 625px 594px;
 }
 .display-none{
 	display: none;

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		div {
+			height: 100px;
+			width: 100px;
+			background-color: red;
+			-webkit-transform: rotate(30deg) ;
+			-moz-transform:    rotate(30deg) ; 
+			-ms-transform:     rotate(30deg) ; 
+			-o-transform:      rotate(30deg) ;  
+			transform:      rotate(30deg) ;  
+		}
+	</style>
+	<script src="/js/jquery.min.js"></script>
+	<script>
+		function calculateDeg(selector){
+			var tr = $(selector).css('transform');
+			var values = tr.split('(')[1].split(')')[0].split(',');
+			var a = values[0];
+			var b = values[1];
+			var c = values[2];
+			var d = values[3];
+
+			var scale = Math.sqrt(a*a + b*b);
+			var sin = b/scale;
+			var angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
+			return angle
+		}
+		function rotate(selector, angle, deg, ms){
+			$(selector).animate({a: deg},{
+				duration:ms,
+				step: function(now,fx) {
+					$(this).css('transform','rotate('+(angle+now)+'deg)'); 
+				}
+			});
+		}
+		$(document).ready(function(){
+			setInterval(function(){
+
+			
+				$('div').each(function(){
+					var angle = calculateDeg(this);
+					//console.log(angle)
+					rotate(this, angle,15,1000)
+					angle = calculateDeg(this);
+					rotate(this, angle,0,1000)
+					//console.log(angle)
+				})
+			},2000)
+				
+			
+		})
+	</script>
+</head>
+<body>
+	<div id="thing" class="thing">a</div>
+	<button>버튼</button>
+</body>
+</html>

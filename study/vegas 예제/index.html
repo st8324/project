@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<!-- <script src="./vegas.js"></script> -->
+	<script src="./vegas.min.js"></script>
+	<link rel="stylesheet" href="./vegas.css">
+	<title>vegas 예제</title>
+	<style>
+		.body{
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+	</style>
+	<script>
+		$(function() {
+			$('.body').vegas({
+				loop:false,
+				animationDuration:2000,
+				transitionDuration:500,
+				slides: [
+						{ src: 'cat.jpg' },
+						{ src: 'dog.jpg' }
+				],
+				animation: 'kenburns'
+			});
+			$('.body').vegas('pause');
+			$('#c1').click(function(s){
+				$('.body').vegas('jump', 0);
+				$('.body').vegas('pause');
+				//$('.body').vegas('destroy');
+				// $('.body').vegas({
+				// 	loop:false,
+				// 	animationDuration:2000,
+				// 	transitionDuration:500,
+				// 	slides: [
+				// 			{ src: 'dog.jpg' },
+				// 	],
+				// 	animation: 'kenburns'
+				// });
+			})
+			$('#c2').click(function(){
+				$('.body').vegas('jump', 1);
+				$('.body').vegas('pause');
+			})
+			$('#c3').click(function(){
+				$('.body').vegas({
+					loop:false,
+					slides: [
+							{ src: 'dog.jpg' },
+					],
+					animation: 'kenburns'
+				});
+			})
+		});
+	</script>
+</head>
+<body>
+	<div class="body"></div>
+	<button id="c1">1</button>
+	<button id="c2">2</button >
+	<button id="c3">3</button>
+</body>
+</html>

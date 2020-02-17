@@ -1,0 +1,13 @@
+$(function(){
+	setInterval(function(){
+		$('.img-slide').first().animate({'margin-left':'-1200px'},1000,function(){
+			$(this).detach().appendTo('.img-wrap').removeAttr('style');
+		})
+	},3000);
+	$('.tab').focusin(function(){
+		$(this).addClass('active').siblings().removeClass('active');
+	})
+	$('.tab').click(function(){
+		$(this).focusin();
+	})
+})

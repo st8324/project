@@ -2,9 +2,9 @@ $(function(){
 	$('.main-menu>li').hover(function(){
 		$('.main-menu>li>a').removeClass('hover');
 		$(this).children('a').addClass('hover');
-		$(this).find('.sub-menu').animate({'height':'160px'})
+		$(this).find('.sub-menu').stop().animate({'height':'160px'})
 	},function(){
-		$(this).find('.sub-menu').animate({'height':'0px'})
+		$(this).find('.sub-menu').stop().animate({'height':'0px'})
 	})
 	$('.menu').mouseout(function(){
 		$('.main-menu>li>a').removeClass('hover');

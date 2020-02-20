@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			img{
+				width: 100vw;
+				height: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<!--	IE에선 지원 안되는 기능	-->
+		<picture>
+			<source media="(min-width: 1000px)" srcset="img/la.jpg">
+			<source media="(min-width: 700px)" srcset="img/ny.jpg">
+			<img src="img/chicago.jpg" alt="People">
+		</picture>
+	</body>
+</html>
+
+
+

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+		<style>
+			html, body {
+				position: relative;
+				height: 100%;
+			}
+			body {
+				background: #eee;
+				font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+				font-size: 14px;
+				color:#000;
+				margin: 0;
+				padding: 0;
+			}
+			.swiper-container {
+				width: 100%;
+				height: 100%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.swiper-slide {
+				text-align: center;
+				font-size: 18px;
+				background: #fff;
+
+				/* Center slide text vertically */
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				-webkit-box-align: center;
+				-ms-flex-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Swiper -->
+    <div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">Slide 1</div>
+				<div class="swiper-slide">Slide 2</div>
+				<div class="swiper-slide">Slide 3</div>
+				<div class="swiper-slide">Slide 4</div>
+				<div class="swiper-slide">Slide 5</div>
+				<div class="swiper-slide">Slide 6</div>
+				<div class="swiper-slide">Slide 7</div>
+				<div class="swiper-slide">Slide 8</div>
+				<div class="swiper-slide">Slide 9</div>
+				<div class="swiper-slide">Slide 10</div>
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+    </div>
+		<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+		<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+		<script>
+			var swiper;
+			$(function(){
+				swiper = new Swiper('.swiper-container', {
+					direction: 'vertical',
+					slidesPerView: 1,
+					spaceBetween: 30,
+					mousewheel: false,
+					pagination: {
+						el: '.swiper-pagination',
+						clickable: true,
+					},
+				});
+				var elm = ".swiper-slide";
+    		mouseWheel(elm);
+			})
+			
+			function mouseWheel(elm){
+				$(elm).each(function (index) {
+        	// 개별적으로 Wheel 이벤트 적용
+        	$(this).on("mousewheel DOMMouseScroll", function (e) {
+						//진행중인 이벤트 중지
+          	e.preventDefault();
+						//마우스 휠 방향을 구하는 부분
+            var delta = 0;
+            if (!event) event = window.event;
+            if (event.wheelDelta) {
+							delta = event.wheelDelta / 120;
+							if (window.opera) delta = -delta;
+            } 
+            else if (event.detail)
+							delta = -event.detail / 3;
+            var elmSelecter = $(elm).eq(index);
+            // 마우스휠을 위에서 아래로
+            if (delta < 0) {
+							//다음요소가 있으면(마지막이 아니면) 다음 컨텐츠의 제일 상단 스크롤 좌표 계산
+							//if ($(elmSelecter).next() != undefined) {
+							if ($(elm).length != index+1) {
+								try{
+									swiper.slideTo(index+1,1000);
+								}catch(e){}
+							}
+            // 마우스휠을 아래에서 위로
+            } else {
+							if ($(elmSelecter).prev() != undefined) {
+								try{
+									swiper.slideTo(index-1,1000);
+								}catch(e){}
+							}
+                
+            }
+        	});
+    		});
+			}
+		</script>
+	</body>
+</html>

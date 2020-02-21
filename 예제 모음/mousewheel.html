@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.box{		height: 100vh;	}
+			.box1{	background-color: red;	}
+			.box2{	background-color: blue;	}
+			.box3{	background-color: green;	}
+			.box4{	background-color: yellow;	}
+		</style>
+	</head>
+	<body>
+		<div class="box box1"></div>
+		<div class="box box2"></div>
+		<div class="box box3"></div>
+		<div class="box box4"></div>
+		<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+		<script>
+			$(function(){
+				var elm = ".box";
+    		mouseWheel(elm);
+			})
+			
+			function mouseWheel(elm){
+				$(elm).each(function (index) {
+        	// 개별적으로 Wheel 이벤트 적용
+        	$(this).on("mousewheel DOMMouseScroll", function (e) {
+						//진행중인 이벤트 중지
+          	e.preventDefault();
+						//마우스 휠 방향을 구하는 부분
+            var delta = 0;
+            if (!event) event = window.event;
+            if (event.wheelDelta) {
+							delta = event.wheelDelta / 120;
+							if (window.opera) delta = -delta;
+            } 
+            else if (event.detail)
+							delta = -event.detail / 3;
+						var moveTop = $(window).scrollTop(); 
+            var elmSelecter = $(elm).eq(index);
+            // 마우스휠을 위에서 아래로
+            if (delta < 0) {
+							//다음요소가 있으면(마지막이 아니면) 다음 컨텐츠의 제일 상단 스크롤 좌표 계산
+							console.log($(elm).length)
+							console.log(index+1);
+							//if ($(elmSelecter).next() != undefined) {
+							if ($(elm).length != index+1) {
+								try{
+									moveTop = $(elmSelecter).next().offset().top;
+								}catch(e){}
+							}
+            // 마우스휠을 아래에서 위로
+            } else {
+							if ($(elmSelecter).prev() != undefined) {
+								try{
+									moveTop = $(elmSelecter).prev().offset().top;
+								}catch(e){}
+							}
+                
+            }
+            //
+            
+            // 화면 이동 0.8초(800)
+            $("html,body").stop().animate({
+                scrollTop: moveTop + 'px'
+            }, {
+                duration: 400, complete: function () {}
+            });
+        	});
+    		});
+			}
+		</script>
+	</body>
+</html>

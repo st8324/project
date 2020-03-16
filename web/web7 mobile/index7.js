@@ -1,0 +1,11 @@
+$(function(){
+	$('.main-menu>li').hover(function(){
+		$(this).find('.sub-menu').stop().slideToggle();
+	})
+	setInterval(function(){
+		$('.img-slide').first().animate({'margin-top':'350px'},function(){
+			$('.img-slide').last().detach().prependTo('.img-wrap');
+			$(this).removeAttr('style');
+		})
+	},3000);
+})
